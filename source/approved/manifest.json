@@ -1,0 +1,47 @@
+{
+  "verifiedFromOriginalPNGs": true,
+  "sourceImages": [
+    {
+      "id": "bronya",
+      "originalPNG": "理之律者_背景恢复版.png",
+      "originalPNGSHA256": "12e9e1dbe303aa41ac75ef1a196428d010723e29af67047cd2e42c53adc7be84",
+      "decodedRGBSHA256": "01acdb3a87ead7bf2b89a68008c524e048009ad947cd853da53460d4d9651fe3",
+      "losslessPackedSHA256": "4f6511f6a7d8f898b89461a875a9713f8e97576334e5aa45afc547502af10bf6"
+    },
+    {
+      "id": "kiana",
+      "originalPNG": "琪亚娜_背景恢复版.png",
+      "originalPNGSHA256": "5bec3a8e66c1a0e69206f9015e0440f4ec0ade8e9ca5abfcc6273a2aa2ba0479",
+      "decodedRGBSHA256": "4d8484199306c206d49bf426f7cf229921505ea46f7969fbb50b64d6b1133954",
+      "losslessPackedSHA256": "031006de55d7b12305bc46c6f4867ed05ff9abbf07e20c4b897bf792856c8dc1"
+    },
+    {
+      "id": "elysia",
+      "originalPNG": "爱莉希雅_背景恢复版.png",
+      "originalPNGSHA256": "2b99218c26161962aade8301d69441468c8b29f2d9aaee090c992aef37733eb2",
+      "decodedRGBSHA256": "018162c960c9dfac87766a8139e6088f21dc0ba49a708b2cfd59413e7b17b333",
+      "losslessPackedSHA256": "886cbd47af13807705cd07ddffdda99e573b85453b1482b28ce11748a76c1033"
+    },
+    {
+      "id": "aemeath",
+      "originalPNG": "爱弥斯_背景恢复版.png",
+      "originalPNGSHA256": "acccddc7e81d506192f6fb93ea844ac0f5b8bed015278ad32f72d12cbf3c8de3",
+      "decodedRGBSHA256": "25873f422bc44a6d19406fd4b68215e67308330c4fecbd973590519bf17d55e7",
+      "losslessPackedSHA256": "c46127b20f688e1c4b18abd731ea1928db0787061decd9991f0a1403887fc8c2"
+    },
+    {
+      "id": "vyron",
+      "originalPNG": "威龙_凌霄戍卫_修正版.png",
+      "originalPNGSHA256": "25e955e248df144f2bec7ca9c055436dabef2433ed4978d35099b716c7b5f244",
+      "decodedRGBSHA256": "0c35fb8fc3cb792750f8c30338675ace638f0e8aa776c671b96564c02f949800",
+      "losslessPackedSHA256": "9d9a710034abd48762bae859416d26b64f4cd39970287d54351f1421f8815918"
+    },
+    {
+      "id": "luna",
+      "originalPNG": "露娜_背景恢复版.png",
+      "originalPNGSHA256": "44528d63525d7c8a31b5f7b646ca821ab52f5035d52c9e0803187f3b64280ee2",
+      "decodedRGBSHA256": "c7f70a3785cabd243b71ccf313f967e425097c107e09faec501f756de170db1d",
+      "losslessPackedSHA256": "eae07a7dc0c643de1fc2957fe0613135dfee4fd06722a975cc94519c3de11eab"
+    }
+  ]
+}

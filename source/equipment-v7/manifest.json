@@ -1,0 +1,393 @@
+{
+  "canvas": [
+    1024,
+    1536
+  ],
+  "scenes": [
+    {
+      "id": "bronya",
+      "equipment": [
+        {
+          "id": "equipment-moto",
+          "label": "摩托整体",
+          "pivot": [
+            552,
+            1112
+          ],
+          "mask": "bronya-moto.png",
+          "entry": {
+            "start": 0.04,
+            "end": 0.98,
+            "from": {
+              "x": -108,
+              "y": 124,
+              "r": -2.2
+            },
+            "ease": "glide",
+            "settle": 0.22,
+            "overshoot": 0.018
+          },
+          "sourceParts": [
+            "rear-tyre",
+            "rear-rim",
+            "front-tyre",
+            "front-rim",
+            "rear-swingarm",
+            "bike-chassis",
+            "bike-tail",
+            "bike-seat",
+            "front-fork",
+            "front-fairing",
+            "front-fender",
+            "handlebar"
+          ],
+          "exclusionMasks": [
+            "bronya-rider-exclusion-v71.png"
+          ],
+          "semantic": "Motorcycle only. Both legs and boots are stationary rider pixels, excluded from the rigid motorcycle animation.",
+          "reconstruction": {
+            "file": "bronya-moto-underpaint.png",
+            "sourceVector": "bronya-moto-underpaint.svg",
+            "occludedBy": "equipment-foreground",
+            "scope": "Concealed chassis, seat, swingarm and perspective rear rim; follows the motorcycle rigid pose. Rider remains stationary in front."
+          }
+        }
+      ],
+      "foregroundMask": "bronya-foreground.png",
+      "riderCorrection": {
+        "version": "7.1",
+        "path": "M590 796 L650 832 L638 878 L601 912 L558 960 L518 996 L477 1038 L432 1070 L398 1110 L369 1140 L349 1176 L336 1200 L325 1240 L308 1298 L295 1373 L277 1366 L249 1329 L232 1304 L236 1270 L243 1235 L260 1196 L276 1168 L304 1134 L322 1074 L333 1027 L353 993 L379 959 L416 932 L452 908 L494 872 L537 838 Z",
+        "mask": "bronya-rider-exclusion-v71.png",
+        "removedMovingPixels": 52017,
+        "description": "Hanging leg and pointed boot follow the rider, not the motorcycle."
+      }
+    },
+    {
+      "id": "kiana",
+      "equipment": [
+        {
+          "id": "equipment-character",
+          "label": "琪亚娜",
+          "role": "character",
+          "pivot": [
+            620,
+            850
+          ],
+          "mask": "kiana-character.png",
+          "entry": {
+            "start": 0.015,
+            "end": 0.84,
+            "from": {
+              "x": 34,
+              "y": 20,
+              "r": -0.75
+            },
+            "ease": "glide",
+            "settle": 0.2,
+            "overshoot": 0.009
+          }
+        },
+        {
+          "id": "equipment-sword",
+          "label": "大剑实体",
+          "role": "blade",
+          "pivot": [
+            316,
+            679
+          ],
+          "mask": "kiana-sword-core.png",
+          "entry": {
+            "start": 0.1,
+            "end": 0.91,
+            "from": {
+              "x": -18,
+              "y": -96,
+              "r": -3.2
+            },
+            "ease": "drift",
+            "settle": 0.23,
+            "overshoot": 0.014
+          }
+        },
+        {
+          "id": "equipment-flames",
+          "label": "剑锋火焰",
+          "role": "flame",
+          "pivot": [
+            316,
+            800
+          ],
+          "mask": "kiana-flames.png",
+          "reveal": {
+            "angle": 66,
+            "start": 0.22,
+            "end": 0.88
+          },
+          "entry": {
+            "start": 0.2,
+            "end": 1,
+            "from": {
+              "x": -24,
+              "y": -58,
+              "r": -1.2
+            },
+            "ease": "breath",
+            "settle": 0.24,
+            "overshoot": 0.012
+          }
+        }
+      ],
+      "foregroundMask": "kiana-foreground.png",
+      "foregroundFollows": "equipment-character",
+      "layerGroups": [
+        "character",
+        "blade",
+        "flame"
+      ]
+    },
+    {
+      "id": "elysia",
+      "equipment": [
+        {
+          "id": "equipment-bow",
+          "label": "水晶弓",
+          "pivot": [
+            855,
+            714
+          ],
+          "mask": "elysia-bow.png",
+          "entry": {
+            "start": 0.06,
+            "end": 0.91,
+            "from": {
+              "x": 64,
+              "y": 96,
+              "r": 4.2
+            },
+            "ease": "glide",
+            "settle": 0.22,
+            "overshoot": 0.022
+          },
+          "sourceParts": [
+            "bow-riser",
+            "bow-upper-limb",
+            "bow-upper-blade",
+            "bow-heart",
+            "bow-upper-leaves",
+            "bow-lower-limb",
+            "bow-lower-leaves",
+            "bow-lower-tip",
+            "bowstring"
+          ]
+        },
+        {
+          "id": "equipment-arrow",
+          "label": "箭矢",
+          "pivot": [
+            660,
+            632
+          ],
+          "mask": "elysia-arrow.png",
+          "entry": {
+            "start": 0.29,
+            "end": 0.98,
+            "from": {
+              "x": -172,
+              "y": -26,
+              "r": 0
+            },
+            "ease": "out",
+            "settle": 0.22,
+            "overshoot": 0.008
+          },
+          "sourceParts": [
+            "arrow"
+          ]
+        }
+      ],
+      "foregroundMask": "elysia-foreground.png"
+    },
+    {
+      "id": "aemeath",
+      "equipment": [
+        {
+          "id": "equipment-mech",
+          "label": "机兵整体",
+          "pivot": [
+            390,
+            760
+          ],
+          "mask": "aemeath-mech.png",
+          "entry": {
+            "start": 0.02,
+            "end": 0.96,
+            "from": {
+              "x": -42,
+              "y": 102,
+              "r": -1.7
+            },
+            "ease": "drift",
+            "settle": 0.22,
+            "overshoot": 0.014
+          },
+          "sourceParts": [
+            "mech-wing-left-upper",
+            "mech-wing-left-lower",
+            "mech-wing-right-root",
+            "mech-wing-right-tip",
+            "mech-wing-right-lower",
+            "mech-right-thigh",
+            "mech-right-knee",
+            "mech-right-shin",
+            "mech-right-foot",
+            "mech-pelvis",
+            "mech-torso",
+            "mech-chest-left-plane",
+            "mech-chest-right-plane",
+            "mech-neck",
+            "mech-left-upper-arm",
+            "mech-left-shoulder-cap",
+            "mech-left-elbow",
+            "mech-left-forearm",
+            "mech-left-wrist",
+            "mech-left-hand",
+            "mech-left-thumb",
+            "mech-left-index",
+            "mech-left-middle",
+            "mech-left-ring",
+            "mech-left-little",
+            "mech-head",
+            "mech-head-front-plane",
+            "mech-crest-tall",
+            "mech-crest-left",
+            "mech-crest-right"
+          ]
+        }
+      ],
+      "foregroundMask": "aemeath-foreground.png"
+    },
+    {
+      "id": "vyron",
+      "equipment": [
+        {
+          "id": "equipment-rifle",
+          "label": "步枪",
+          "pivot": [
+            350,
+            683
+          ],
+          "mask": "vyron-rifle.png",
+          "entry": {
+            "start": 0.1,
+            "end": 0.94,
+            "from": {
+              "x": -72,
+              "y": 38,
+              "r": -5
+            },
+            "ease": "glide",
+            "settle": 0.22,
+            "overshoot": 0.022
+          },
+          "sourceParts": [
+            "rifle"
+          ]
+        },
+        {
+          "id": "equipment-nvg",
+          "label": "头顶夜视仪",
+          "pivot": [
+            566,
+            351
+          ],
+          "mask": "vyron-nvg.png",
+          "entry": {
+            "start": 0.2,
+            "end": 0.91,
+            "from": {
+              "x": 0,
+              "y": -42,
+              "r": -7
+            },
+            "ease": "drift",
+            "settle": 0.22,
+            "overshoot": 0.012
+          },
+          "sourceParts": [
+            "nvg-mount",
+            "nvg-arm",
+            "nvg-pod-left",
+            "nvg-pod-middle",
+            "nvg-pod-right"
+          ]
+        }
+      ],
+      "foregroundMask": "vyron-foreground.png"
+    },
+    {
+      "id": "luna",
+      "equipment": [
+        {
+          "id": "equipment-bow",
+          "label": "复合弓",
+          "pivot": [
+            881,
+            832
+          ],
+          "mask": "luna-bow.png",
+          "entry": {
+            "start": 0.05,
+            "end": 0.92,
+            "from": {
+              "x": 42,
+              "y": 112,
+              "r": 4.8
+            },
+            "ease": "glide",
+            "settle": 0.22,
+            "overshoot": 0.018
+          },
+          "sourceParts": [
+            "bow-riser",
+            "bow-grip",
+            "bow-upper-limb",
+            "upper-cam",
+            "bow-lower-limb",
+            "lower-cam",
+            "bow-sight-rail",
+            "bow-sight",
+            "bow-stabilizer",
+            "main-string",
+            "control-cable"
+          ]
+        },
+        {
+          "id": "equipment-arrow",
+          "label": "箭矢",
+          "pivot": [
+            630,
+            649
+          ],
+          "mask": "luna-arrow.png",
+          "entry": {
+            "start": 0.3,
+            "end": 0.99,
+            "from": {
+              "x": -184,
+              "y": 37,
+              "r": 0
+            },
+            "ease": "out",
+            "settle": 0.22,
+            "overshoot": 0.008
+          },
+          "sourceParts": [
+            "arrow"
+          ]
+        }
+      ],
+      "foregroundMask": "luna-foreground.png"
+    }
+  ],
+  "scope": "Whole equipment source-alpha ownership. Source pixels retained; no anatomical fragments or terminal replacement."
+}

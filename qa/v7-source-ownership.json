@@ -1,0 +1,93 @@
+{
+  "signature": "7cb576363198fcbaebfceb60a68e8737fd025867f35d1956edaeedaea6e76148",
+  "reports": [
+    {
+      "id": "bronya",
+      "equipment": [
+        "equipment-moto"
+      ],
+      "unownedPixels": 0,
+      "multiplyOwnedPixels": 0,
+      "sourceRGBSHA256": "01acdb3a87ead7bf2b89a68008c524e048009ad947cd853da53460d4d9651fe3",
+      "concealedRepairPixels": 91173,
+      "restWithRepairRGBSHA256": "01acdb3a87ead7bf2b89a68008c524e048009ad947cd853da53460d4d9651fe3",
+      "meanRGBError": 0,
+      "duration": 1000
+    },
+    {
+      "id": "kiana",
+      "equipment": [
+        "equipment-character",
+        "equipment-sword",
+        "equipment-flames"
+      ],
+      "unownedPixels": 0,
+      "multiplyOwnedPixels": 0,
+      "sourceRGBSHA256": "4d8484199306c206d49bf426f7cf229921505ea46f7969fbb50b64d6b1133954",
+      "concealedRepairPixels": 0,
+      "restWithRepairRGBSHA256": "4d8484199306c206d49bf426f7cf229921505ea46f7969fbb50b64d6b1133954",
+      "meanRGBError": 0,
+      "duration": 1000
+    },
+    {
+      "id": "elysia",
+      "equipment": [
+        "equipment-bow",
+        "equipment-arrow"
+      ],
+      "unownedPixels": 0,
+      "multiplyOwnedPixels": 0,
+      "sourceRGBSHA256": "018162c960c9dfac87766a8139e6088f21dc0ba49a708b2cfd59413e7b17b333",
+      "concealedRepairPixels": 0,
+      "restWithRepairRGBSHA256": "018162c960c9dfac87766a8139e6088f21dc0ba49a708b2cfd59413e7b17b333",
+      "meanRGBError": 0,
+      "duration": 1000
+    },
+    {
+      "id": "aemeath",
+      "equipment": [
+        "equipment-mech"
+      ],
+      "unownedPixels": 0,
+      "multiplyOwnedPixels": 0,
+      "sourceRGBSHA256": "25873f422bc44a6d19406fd4b68215e67308330c4fecbd973590519bf17d55e7",
+      "concealedRepairPixels": 0,
+      "restWithRepairRGBSHA256": "25873f422bc44a6d19406fd4b68215e67308330c4fecbd973590519bf17d55e7",
+      "meanRGBError": 0,
+      "duration": 1000
+    },
+    {
+      "id": "vyron",
+      "equipment": [
+        "equipment-rifle",
+        "equipment-nvg"
+      ],
+      "unownedPixels": 0,
+      "multiplyOwnedPixels": 0,
+      "sourceRGBSHA256": "0c35fb8fc3cb792750f8c30338675ace638f0e8aa776c671b96564c02f949800",
+      "concealedRepairPixels": 0,
+      "restWithRepairRGBSHA256": "0c35fb8fc3cb792750f8c30338675ace638f0e8aa776c671b96564c02f949800",
+      "meanRGBError": 0,
+      "duration": 1000
+    },
+    {
+      "id": "luna",
+      "equipment": [
+        "equipment-bow",
+        "equipment-arrow"
+      ],
+      "unownedPixels": 0,
+      "multiplyOwnedPixels": 0,
+      "sourceRGBSHA256": "c7f70a3785cabd243b71ccf313f967e425097c107e09faec501f756de170db1d",
+      "concealedRepairPixels": 0,
+      "restWithRepairRGBSHA256": "c7f70a3785cabd243b71ccf313f967e425097c107e09faec501f756de170db1d",
+      "meanRGBError": 0,
+      "duration": 1000
+    }
+  ],
+  "checks": [
+    "Every original pixel assigned exactly once to ink or equipment",
+    "Source colours and final native pixel positions unchanged",
+    "Continuous equipment masks, no body-part animation"
+  ]
+}

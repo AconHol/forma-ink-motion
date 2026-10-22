@@ -1,0 +1,21 @@
+{
+  "baseline-v8": {
+    "frames": 146,
+    "p50Gap": 34,
+    "p95Gap": 67,
+    "p99Gap": 83.33399999999983,
+    "over25": 123,
+    "over40": 45,
+    "workP95": 32
+  },
+  "gpu-v81": {
+    "frames": 682,
+    "p50Gap": 8,
+    "p95Gap": 16,
+    "p99Gap": 17,
+    "over25": 2,
+    "over40": 1,
+    "workP95": 2
+  },
+  "environment": "Windows Edge, RTX 3060, 390x844 mobile viewport, device scale 2, 4x CPU throttling; six 1-second scene changes. Not a Snapdragon phone measurement."
+}

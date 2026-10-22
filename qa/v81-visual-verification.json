@@ -1,0 +1,590 @@
+{
+  "frames": [
+    {
+      "id": "bronya",
+      "progress": 0,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "bronya",
+      "progress": 0.18,
+      "mean": 0.5493204328748915,
+      "psnr": 49.28831942915622,
+      "max": 32,
+      "changed": 1183231,
+      "over3": 1864,
+      "over20": 104,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "bronya",
+      "progress": 0.42,
+      "mean": 0.4539542728000217,
+      "psnr": 47.255949830019006,
+      "max": 31,
+      "changed": 841909,
+      "over3": 24340,
+      "over20": 280,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "bronya",
+      "progress": 0.7,
+      "mean": 0.2832289801703559,
+      "psnr": 46.29977293692043,
+      "max": 47,
+      "changed": 289025,
+      "over3": 39827,
+      "over20": 228,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "bronya",
+      "progress": 0.93,
+      "mean": 0.01947763231065538,
+      "psnr": 64.4159719794014,
+      "max": 14,
+      "changed": 62625,
+      "over3": 53,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "bronya",
+      "progress": 1,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 1,
+      "paletteMean": 0.029687881469726562,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "kiana",
+      "progress": 0,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "kiana",
+      "progress": 0.18,
+      "mean": 0.49848175048828125,
+      "psnr": 50.096710780319356,
+      "max": 62,
+      "changed": 1007393,
+      "over3": 367,
+      "over20": 41,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "kiana",
+      "progress": 0.42,
+      "mean": 0.4472418891059028,
+      "psnr": 45.89737079410982,
+      "max": 106,
+      "changed": 750114,
+      "over3": 24942,
+      "over20": 463,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "kiana",
+      "progress": 0.7,
+      "mean": 0.3158266279432509,
+      "psnr": 45.70395938461327,
+      "max": 76,
+      "changed": 326361,
+      "over3": 40098,
+      "over20": 15,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "kiana",
+      "progress": 0.93,
+      "mean": 0.010977003309461806,
+      "psnr": 67.68191850933786,
+      "max": 8,
+      "changed": 28020,
+      "over3": 4,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "kiana",
+      "progress": 1,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 1,
+      "paletteMean": 0.03647719489203559,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "elysia",
+      "progress": 0,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "elysia",
+      "progress": 0.18,
+      "mean": 0.6085122426350912,
+      "psnr": 49.22472814696309,
+      "max": 65,
+      "changed": 1269379,
+      "over3": 950,
+      "over20": 37,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "elysia",
+      "progress": 0.42,
+      "mean": 0.65604125128852,
+      "psnr": 43.91251132172015,
+      "max": 74,
+      "changed": 1006941,
+      "over3": 51129,
+      "over20": 655,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "elysia",
+      "progress": 0.7,
+      "mean": 0.42077551947699654,
+      "psnr": 44.47271367403473,
+      "max": 65,
+      "changed": 361676,
+      "over3": 67154,
+      "over20": 49,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "elysia",
+      "progress": 0.93,
+      "mean": 0.021791246202256944,
+      "psnr": 60.82117209101166,
+      "max": 14,
+      "changed": 37314,
+      "over3": 1550,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "elysia",
+      "progress": 1,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 1,
+      "paletteMean": 0.024439705742730036,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "aemeath",
+      "progress": 0,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "aemeath",
+      "progress": 0.18,
+      "mean": 0.5341478983561198,
+      "psnr": 49.559808674081715,
+      "max": 59,
+      "changed": 1084041,
+      "over3": 1609,
+      "over20": 32,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "aemeath",
+      "progress": 0.42,
+      "mean": 0.5604430304633247,
+      "psnr": 42.65361971354274,
+      "max": 112,
+      "changed": 870719,
+      "over3": 42500,
+      "over20": 886,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "aemeath",
+      "progress": 0.7,
+      "mean": 0.373409907023112,
+      "psnr": 44.65333172905309,
+      "max": 59,
+      "changed": 321628,
+      "over3": 57550,
+      "over20": 37,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "aemeath",
+      "progress": 0.93,
+      "mean": 0.1597800784640842,
+      "psnr": 50.16520670632667,
+      "max": 15,
+      "changed": 186715,
+      "over3": 19835,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "aemeath",
+      "progress": 1,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 1,
+      "paletteMean": 0.031995137532552086,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "vyron",
+      "progress": 0,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "vyron",
+      "progress": 0.18,
+      "mean": 0.734590106540256,
+      "psnr": 46.510632010470104,
+      "max": 71,
+      "changed": 1258564,
+      "over3": 8833,
+      "over20": 505,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "vyron",
+      "progress": 0.42,
+      "mean": 0.6593449910481771,
+      "psnr": 41.6993321069113,
+      "max": 117,
+      "changed": 975799,
+      "over3": 48149,
+      "over20": 879,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "vyron",
+      "progress": 0.7,
+      "mean": 0.45029597812228733,
+      "psnr": 43.78508724096164,
+      "max": 75,
+      "changed": 396213,
+      "over3": 63805,
+      "over20": 328,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "vyron",
+      "progress": 0.93,
+      "mean": 0.024046156141493056,
+      "psnr": 53.93989062512736,
+      "max": 69,
+      "changed": 33367,
+      "over3": 696,
+      "over20": 310,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "vyron",
+      "progress": 1,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 1,
+      "paletteMean": 0.029703987969292536,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "luna",
+      "progress": 0,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "luna",
+      "progress": 0.18,
+      "mean": 0.7447855207655165,
+      "psnr": 47.454566657093295,
+      "max": 47,
+      "changed": 1309524,
+      "over3": 3939,
+      "over20": 228,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "luna",
+      "progress": 0.42,
+      "mean": 0.6936406029595269,
+      "psnr": 43.7993556297758,
+      "max": 119,
+      "changed": 1036208,
+      "over3": 49931,
+      "over20": 431,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "luna",
+      "progress": 0.7,
+      "mean": 0.5068323347303603,
+      "psnr": 43.393670555115975,
+      "max": 59,
+      "changed": 449634,
+      "over3": 66160,
+      "over20": 130,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "luna",
+      "progress": 0.93,
+      "mean": 0.016450881958007812,
+      "psnr": 62.65721196752839,
+      "max": 64,
+      "changed": 29094,
+      "over3": 980,
+      "over20": 1,
+      "paletteMax": 0,
+      "paletteMean": 0,
+      "canvas": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "luna",
+      "progress": 1,
+      "mean": 0,
+      "psnr": null,
+      "max": 0,
+      "changed": 0,
+      "over3": 0,
+      "over20": 0,
+      "paletteMax": 1,
+      "paletteMean": 0.026255501641167536,
+      "canvas": [
+        1024,
+        1536
+      ]
+    }
+  ],
+  "errors": [],
+  "fallback": {
+    "compositor": "canvas2d",
+    "canvas": [
+      1024,
+      1536
+    ],
+    "filter": "url(\"#page-palette\")"
+  },
+  "passed": true
+}

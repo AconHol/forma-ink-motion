@@ -1,0 +1,424 @@
+{
+  "result": "passed",
+  "signature": "32968dcc3963a7905fb2dc6e48a22e53a53108b8b16bb16c87029a93954a06db",
+  "scenes": 6,
+  "equipment": 11,
+  "duration": 1000,
+  "checks": [
+    "Original PNG checksums",
+    "Independent object schedules",
+    "Non-linear Bézier midpoint",
+    "Bounded rigid overshoot and exact source-aligned rest",
+    "Reduced motion has no displacement",
+    "Complete monotonic non-linear ink waves"
+  ],
+  "objects": [
+    {
+      "scene": "bronya",
+      "id": "equipment-moto",
+      "entry": {
+        "start": 0.04,
+        "end": 0.98,
+        "from": {
+          "x": -108,
+          "y": 124,
+          "r": -2.2
+        },
+        "ease": "glide",
+        "settle": 0.22,
+        "overshoot": 0.018
+      },
+      "midpoint": {
+        "x": -3.0390115814594165,
+        "y": 3.489235519453404,
+        "r": -0.061905791474173306,
+        "a": 1,
+        "progress": 0.5000000000000001
+      },
+      "overshoot": {
+        "x": 1.944,
+        "y": -2.2319999999999998,
+        "r": 0.0396,
+        "a": 1,
+        "progress": 0.78
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "kiana",
+      "id": "equipment-character",
+      "entry": {
+        "start": 0.015,
+        "end": 0.84,
+        "from": {
+          "x": 34,
+          "y": 20,
+          "r": -0.75
+        },
+        "ease": "glide",
+        "settle": 0.2,
+        "overshoot": 0.009
+      },
+      "midpoint": {
+        "x": 1.4226713261108972,
+        "y": 0.8368654859475866,
+        "r": -0.0313824557230345,
+        "a": 1,
+        "progress": 0.5
+      },
+      "overshoot": {
+        "x": -0.306,
+        "y": -0.18,
+        "r": 0.006749999999999999,
+        "a": 1,
+        "progress": 0.8
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "kiana",
+      "id": "equipment-sword",
+      "entry": {
+        "start": 0.1,
+        "end": 0.91,
+        "from": {
+          "x": -18,
+          "y": -96,
+          "r": -3.2
+        },
+        "ease": "drift",
+        "settle": 0.23,
+        "overshoot": 0.014
+      },
+      "midpoint": {
+        "x": -1.4413503190254462,
+        "y": -7.687201701469046,
+        "r": -0.2562400567156349,
+        "a": 1,
+        "progress": 0.5
+      },
+      "overshoot": {
+        "x": 0.252,
+        "y": 1.344,
+        "r": 0.044800000000000006,
+        "a": 1,
+        "progress": 0.77
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "kiana",
+      "id": "equipment-flames",
+      "entry": {
+        "start": 0.2,
+        "end": 1,
+        "from": {
+          "x": -24,
+          "y": -58,
+          "r": -1.2
+        },
+        "ease": "breath",
+        "settle": 0.24,
+        "overshoot": 0.012
+      },
+      "midpoint": {
+        "x": -2.572208440536145,
+        "y": -6.216170397962351,
+        "r": -0.12861042202680725,
+        "a": 1,
+        "progress": 0.49999999999999994
+      },
+      "overshoot": {
+        "x": 0.28800000000000003,
+        "y": 0.6960000000000001,
+        "r": 0.0144,
+        "a": 1,
+        "progress": 0.7600000000000001
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "elysia",
+      "id": "equipment-bow",
+      "entry": {
+        "start": 0.06,
+        "end": 0.91,
+        "from": {
+          "x": 64,
+          "y": 96,
+          "r": 4.2
+        },
+        "ease": "glide",
+        "settle": 0.22,
+        "overshoot": 0.022
+      },
+      "midpoint": {
+        "x": 1.556498485775471,
+        "y": 2.3347477286632063,
+        "r": 0.10214521312901528,
+        "a": 1,
+        "progress": 0.49999999999999994
+      },
+      "overshoot": {
+        "x": -1.4080000000000013,
+        "y": -2.112000000000002,
+        "r": -0.09240000000000008,
+        "a": 1,
+        "progress": 0.7799999999999999
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "elysia",
+      "id": "equipment-arrow",
+      "entry": {
+        "start": 0.29,
+        "end": 0.98,
+        "from": {
+          "x": -172,
+          "y": -26,
+          "r": 0
+        },
+        "ease": "out",
+        "settle": 0.22,
+        "overshoot": 0.008
+      },
+      "midpoint": {
+        "x": -0.03249961767167209,
+        "y": -0.004912732903857409,
+        "r": 0,
+        "a": 1,
+        "progress": 0.5000000000000001
+      },
+      "overshoot": {
+        "x": 1.3760000000000001,
+        "y": 0.20800000000000002,
+        "r": 0,
+        "a": 1,
+        "progress": 0.78
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "aemeath",
+      "id": "equipment-mech",
+      "entry": {
+        "start": 0.02,
+        "end": 0.96,
+        "from": {
+          "x": -42,
+          "y": 102,
+          "r": -1.7
+        },
+        "ease": "drift",
+        "settle": 0.22,
+        "overshoot": 0.014
+      },
+      "midpoint": {
+        "x": -3.5880487031335813,
+        "y": 8.713832564752984,
+        "r": -0.14523054274588304,
+        "a": 1,
+        "progress": 0.5
+      },
+      "overshoot": {
+        "x": 0.588,
+        "y": -1.428,
+        "r": 0.023799999999999998,
+        "a": 1,
+        "progress": 0.78
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "vyron",
+      "id": "equipment-rifle",
+      "entry": {
+        "start": 0.1,
+        "end": 0.94,
+        "from": {
+          "x": -72,
+          "y": 38,
+          "r": -5
+        },
+        "ease": "glide",
+        "settle": 0.22,
+        "overshoot": 0.022
+      },
+      "midpoint": {
+        "x": -1.7510607964973968,
+        "y": 0.9241709759291816,
+        "r": -0.12160144420120811,
+        "a": 1,
+        "progress": 0.5000000000000001
+      },
+      "overshoot": {
+        "x": 1.5839999999999999,
+        "y": -0.836,
+        "r": 0.10999999999999999,
+        "a": 1,
+        "progress": 0.78
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "vyron",
+      "id": "equipment-nvg",
+      "entry": {
+        "start": 0.2,
+        "end": 0.91,
+        "from": {
+          "x": 0,
+          "y": -42,
+          "r": -7
+        },
+        "ease": "drift",
+        "settle": 0.22,
+        "overshoot": 0.012
+      },
+      "midpoint": {
+        "x": 0,
+        "y": -3.663811920681638,
+        "r": -0.6106353201136063,
+        "a": 1,
+        "progress": 0.5000000000000001
+      },
+      "overshoot": {
+        "x": 0,
+        "y": 0.504,
+        "r": 0.084,
+        "a": 1,
+        "progress": 0.7800000000000001
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "luna",
+      "id": "equipment-bow",
+      "entry": {
+        "start": 0.05,
+        "end": 0.92,
+        "from": {
+          "x": 42,
+          "y": 112,
+          "r": 4.8
+        },
+        "ease": "glide",
+        "settle": 0.22,
+        "overshoot": 0.018
+      },
+      "midpoint": {
+        "x": 1.1818378372342175,
+        "y": 3.1515675659579134,
+        "r": 0.1350671813981963,
+        "a": 1,
+        "progress": 0.5000000000000001
+      },
+      "overshoot": {
+        "x": -0.7559999999999999,
+        "y": -2.016,
+        "r": -0.08639999999999999,
+        "a": 1,
+        "progress": 0.78
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    },
+    {
+      "scene": "luna",
+      "id": "equipment-arrow",
+      "entry": {
+        "start": 0.3,
+        "end": 0.99,
+        "from": {
+          "x": -184,
+          "y": 37,
+          "r": 0
+        },
+        "ease": "out",
+        "settle": 0.22,
+        "overshoot": 0.008
+      },
+      "midpoint": {
+        "x": -0.034767032858067815,
+        "y": 0.006991196824720158,
+        "r": 0,
+        "a": 1,
+        "progress": 0.5000000000000001
+      },
+      "overshoot": {
+        "x": 1.472,
+        "y": -0.296,
+        "r": 0,
+        "a": 1,
+        "progress": 0.78
+      },
+      "rest": {
+        "x": 0,
+        "y": 0,
+        "r": 0,
+        "a": 1,
+        "progress": 1
+      }
+    }
+  ]
+}

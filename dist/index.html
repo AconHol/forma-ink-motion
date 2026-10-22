@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e8dec8">
+  <meta name="description" content="保留六张定稿的连续原稿轮廓，角色专属墨浪逐版印刷，一秒入场，整页主题色平滑切换。">
+  <meta property="og:title" content="FORMA — INK IN MOTION">
+  <meta property="og:description" content="让六张海报，成为六场演出。">
+  <meta property="og:url" content="https://cobalt-motion-archive-75366.aconhol08.chatgpt.site">
+  <title>FORMA — INK IN MOTION</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZThkZWM4Ii8+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMjUiIGZpbGw9IiMxMTQwYTAiLz48cGF0aCBkPSJNMCA0M0w0MyAwSDY0TDIxIDY0SDBaIiBmaWxsPSIjMTIxMjE0Ii8+PHBhdGggZD0iTTAgNjBMNjAgMEg2NEw0IDY0SDBaIiBmaWxsPSIjZThkZWM4Ii8+PC9zdmc+Cg==" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=8.1.0">
+  <script type="module" src="print-app.js?v=8.1.0"></script>
+<link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin><link rel="canonical" href="https://demo.aconhol.xyz/projects/forma/">
+</head>
+<body>
+  <a class="skip-link" href="#gallery">跳至海报舞台</a>
+  <div class="loader" id="loader" role="status" aria-live="polite" aria-label="正在装配海报">
+    <div class="loader-eyebrow"><span class="register-cross"></span> COLOUR / REGISTRATION</div>
+    <svg class="loader-mark" viewBox="0 0 320 320" aria-hidden="true">
+      <defs><clipPath id="loader-disc-clip"><circle cx="160" cy="160" r="111"/></clipPath></defs>
+      <g class="loader-orbit"><path d="M30 60V30H60 M260 30H290V60 M290 260V290H260 M60 290H30V260" fill="none" stroke="currentColor" stroke-width="2"/></g>
+      <circle class="loader-disc" cx="160" cy="160" r="111" fill="var(--accent)"/>
+      <g clip-path="url(#loader-disc-clip)"><path class="loader-plane" d="M-50 230L230-50L370 90L90 370Z" fill="var(--ink)"/><path class="loader-slit" d="M-40 320L320-40L334-26L-26 334Z" fill="var(--paper)"/></g>
+      <path class="loader-needle" d="M58 252L251 59" stroke="var(--paper)" stroke-width="4"/>
+    </svg>
+    <div class="loader-title">FORMA</div>
+    <div class="loader-status"><span id="load-caption">分离色版，等待墨色归位</span><span id="load-count">0%</span></div>
+    <div class="loader-track"><i id="load-bar"></i></div>
+    <button id="load-retry" hidden>重新载入</button>
+    <div class="loader-foot">SIX POSTERS. ONE MOVING CANVAS.</div>
+  </div>
+
+  <div class="app-shell" id="app" aria-busy="true">
+    <header class="site-header">
+      <a class="wordmark" href="#bronya" aria-label="FORMA 首页"><span class="wordmark-symbol" aria-hidden="true"><i></i><i></i><i></i></span>FORMA<span class="wordmark-separator">/</span><span class="wordmark-sub">MOTION ATELIER</span></a>
+      <div class="header-note">纸上静帧，逐幕醒来<span class="live-dot" aria-hidden="true"></span></div>
+      <button class="icon-button" id="help-toggle" aria-label="查看操作说明" aria-expanded="false" aria-controls="help-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8a4 4 0 0 1 8 0c0 3-4 3-4 6M12 18v1"/></svg></button>
+    </header>
+
+    <main class="gallery" id="gallery" tabindex="-1">
+      <aside class="collection-rail" aria-label="海报选集">
+        <div class="section-kicker"><span class="small-square"></span> THE COLLECTION</div>
+        <h1>INK,<br>IN<br><em>MOTION.</em></h1>
+        <p class="collection-intro">让六张海报，<br>成为六场演出。</p>
+        <nav class="character-nav" aria-label="选择角色">
+          <button class="character-link is-active" data-character="bronya" aria-pressed="true"><span class="character-marker" aria-hidden="true"></span><span class="character-name">BRONYA</span><span class="character-cn">理之律者</span></button>
+          <button class="character-link" data-character="kiana" aria-pressed="false"><span class="character-marker" aria-hidden="true"></span><span class="character-name">KIANA</span><span class="character-cn">琪亚娜</span></button>
+          <button class="character-link" data-character="elysia" aria-pressed="false"><span class="character-marker" aria-hidden="true"></span><span class="character-name">ELYSIA</span><span class="character-cn">爱莉希雅</span></button>
+          <button class="character-link" data-character="aemeath" aria-pressed="false"><span class="character-marker" aria-hidden="true"></span><span class="character-name">AEMEATH</span><span class="character-cn">爱弥斯</span></button>
+          <button class="character-link" data-character="vyron" aria-pressed="false"><span class="character-marker" aria-hidden="true"></span><span class="character-name">VYRON</span><span class="character-cn">凌霄戍卫</span></button>
+          <button class="character-link" data-character="luna" aria-pressed="false"><span class="character-marker" aria-hidden="true"></span><span class="character-name">LUNA</span><span class="character-cn">黑·天际线</span></button>
+        </nav>
+        <div class="rail-foot"><span class="rail-line"></span> SIX PALETTES · SIX ENTRANCES</div>
+      </aside>
+
+      <section class="stage-column" aria-label="动态海报">
+        <div class="stage-topline"><span id="act-tag">RECONSTRUCTION / 重构</span><span class="stage-state" id="stage-state">PREPARING</span></div>
+        <div class="stage-shell" id="stage-shell">
+          <div class="poster-surface" id="poster-surface">
+            <svg id="poster" viewBox="0 0 1024 1536" role="img" aria-labelledby="poster-title poster-desc" preserveAspectRatio="xMidYMid meet">
+              <title id="poster-title">理之律者动态海报</title>
+              <desc id="poster-desc">布洛妮娅骑乘重装小兔。钴蓝与墨黑在旧纸上构成完整海报。</desc>
+              <defs><clipPath id="stage-clip"><rect width="1024" height="1536"/></clipPath></defs>
+              <defs><filter id="page-palette" filterUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1536" color-interpolation-filters="sRGB"><feColorMatrix id="page-colour-map" data-source-map="collection" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter></defs>
+              <g id="source-art" filter="url(#page-palette)"><rect width="1024" height="1536" fill="#e8d9c6" id="paper-base"/>
+              <g id="paper-mount"></g><g id="scene-mount"></g></g><g id="joints-mount"></g>
+            </svg>
+            <canvas id="paper-film" class="paper-film" width="1024" height="1536" aria-hidden="true"></canvas>
+            <div class="stage-loading" id="stage-loading" hidden>墨色正在归位</div>
+          </div>
+          <button class="stage-arrow prev" id="prev" aria-label="上一张海报"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5L8 12L15 19"/></svg></button>
+          <button class="stage-arrow next" id="next" aria-label="下一张海报"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5L16 12L9 19"/></svg></button>
+          <button class="fullscreen-close" id="fullscreen-close" aria-label="退出沉浸观看">×</button>
+        </div>
+        <div class="transport">
+          <button class="transport-button" id="play" aria-label="暂停动画" title="空格：播放或暂停"><svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5V19M16 5V19"/></svg></button>
+          <label class="sr-only" for="timeline">海报出场动画进度</label><input type="range" id="timeline" min="0" max="1000" step="1" value="0" aria-valuetext="动画开始" aria-label="海报出场动画进度">
+          <output class="timecode" id="timecode" for="timeline">0.0 / 1.0</output>
+          <button class="transport-button" id="replay" aria-label="重播当前海报" title="R：重新出场"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8V3M5 8H10M5.4 7.8A8 8 0 1 1 4 14"/></svg></button>
+        </div>
+        <div class="stage-caption"><span id="scene-caption">骑手与机械，共同驶入画面。</span><span class="key-hint">← → 切换</span></div>
+        <div class="mobile-tools" aria-label="海报显示选项">
+          <button data-action="texture" aria-label="切换纸纹增强" aria-pressed="true">纸纹<span>ON</span></button>
+          <button data-action="motion" aria-label="切换柔和动效" aria-pressed="false">柔和<span>OFF</span></button>
+          <button data-action="fullscreen" aria-label="沉浸观看海报">全屏<span>↗</span></button>
+          <button data-action="download" aria-label="保存当前海报">保存<span>SVG</span></button>
+          <button data-action="speed" aria-label="切换慢速播放">慢放<span>1×</span></button>
+          <button data-action="joints" aria-label="显示墨版示意" aria-pressed="false">墨版<span>OFF</span></button>
+        </div>
+      </section>
+
+      <aside class="scene-notes" aria-live="polite" aria-atomic="true">
+        <div class="notes-top"><span class="small-square"></span> THE CHOREOGRAPHY</div>
+        <div class="act-glyph" id="act-glyph" aria-hidden="true"><svg viewBox="0 0 112 112"><circle cx="56" cy="56" r="35"/><path d="M12 100L100 12M1 56H111"/></svg></div>
+        <div class="scene-credit" id="scene-credit">HONKAI IMPACT</div>
+        <h2 id="scene-name">HERRSCHER<br>OF REASON</h2>
+        <p id="scene-story">摩托作为完整物件滑入并减速收稳；骑手轮廓与背景细节随墨版显现。</p>
+        <div class="motion-signature"><span id="signature-label">RIDE / RECONSTRUCT</span><i></i></div>
+        <div class="scene-tools">
+          <button id="texture-toggle" data-action="texture" class="text-tool" aria-pressed="true"><span class="tool-check" aria-hidden="true"></span>纸纹增强<span>OFF</span></button>
+          <button id="motion-toggle" data-action="motion" class="text-tool" aria-pressed="false"><span class="tool-check" aria-hidden="true"></span>柔和动效<span>OFF</span></button>
+          <button id="fullscreen" data-action="fullscreen" class="text-tool"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 7V2H7M11 2H16V7M16 11V16H11M7 16H2V11"/></svg>沉浸观看<span>↗</span></button>
+          <button id="download-svg" data-action="download" class="text-tool"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 1V12M5 8L9 12L13 8M2 13V17H16V13"/></svg>保存海报<span>SVG</span></button>
+          <button class="text-tool" data-action="speed"><span class="tool-check" aria-hidden="true"></span>慢速播放<span>1×</span></button>
+          <button class="text-tool" data-action="joints" aria-pressed="false"><span class="tool-check" aria-hidden="true"></span>墨版示意<span>OFF</span></button>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer"><span>六幕 / SIX ACTS</span><span>FORM BECOMES MOTION<span class="footer-slash">/</span>MOTION BECOMES PRINT</span><button id="about-toggle" aria-expanded="false" aria-controls="about-panel">关于这场演出 <span>+</span></button></footer>
+    <output id="render-status" class="sr-only" aria-live="polite" data-ready="false"></output>
+  </div>
+
+  <dialog id="help-panel" class="info-dialog"><button class="dialog-close" data-close-dialog aria-label="关闭操作说明">×</button><span class="section-kicker">TAKE THE CONTROLS</span><h2>让画面再演一次。</h2><dl><div><dt>← / →</dt><dd>切换海报</dd></div><div><dt>SPACE</dt><dd>暂停、继续或重播</dd></div><div><dt>R</dt><dd>从头重播当前出场</dd></div><div><dt>拖动时间线</dt><dd>停在任何构图时刻</dd></div><div><dt>手机左右轻扫</dt><dd>切换角色</dd></div></dl><p>打开「柔和动效」可降低移动幅度；纸纹增强可叠加细微的印刷颗粒。</p></dialog>
+  <dialog id="about-panel" class="info-dialog"><button class="dialog-close" data-close-dialog aria-label="关闭关于说明">×</button><span class="section-kicker">ABOUT THE PRINT</span><h2>同一张纸，<br>六种抵达方式。</h2><p>六张定稿的人物、装备、背景与排版保留原貌。弓、箭、大剑、摩托与其他装备分别错峰入场，以缓出和短暂回弹收势；连续色版沿专属墨浪推进。默认一秒全部归位，随后静止。</p><p>定稿的细节与纸张质感均来自原稿。六套主题色从原角色彩色参考中提取，再转成适合纸上印刷的色板；海报与整页配色连续变化。</p><p class="small-print">角色及作品归各自权利人所有。本页为个人视觉与动效实验。</p></dialog>
+  <noscript><div class="noscript">请启用 JavaScript，以观看六场原稿分层海报动画。</div></noscript>
+</body>
+</html>

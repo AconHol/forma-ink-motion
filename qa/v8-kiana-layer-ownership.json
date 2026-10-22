@@ -1,0 +1,14 @@
+{
+  "roles": [
+    "character",
+    "blade",
+    "flame"
+  ],
+  "pixels": {
+    "character": 439234,
+    "blade": 75176,
+    "flame": 71778
+  },
+  "overlap": 0,
+  "method": "Disjoint source pixels; character alpha plus blade-axis silhouette and serrated flame exterior; original hands follow character"
+}

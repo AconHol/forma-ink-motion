@@ -1,0 +1,19 @@
+{
+  "name": "forma-ink-motion",
+  "version": "8.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Six layered character posters with native-resolution WebGL2 ink animation.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AconHol/forma-ink-motion.git"
+  },
+  "homepage": "https://demo.aconhol.xyz/projects/forma/",
+  "scripts": {
+    "dev": "node tools/server.mjs",
+    "build": "node tools/build.mjs",
+    "check": "node tools/check-equipment-v7.mjs",
+    "standalone": "node tools/build-equipment-standalone-v7.mjs"
+  }
+}

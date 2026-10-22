@@ -1,0 +1,30 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import assert from 'node:assert/strict';
+import vm from 'node:vm';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist');
+let html=await readFile(path.join(dist,'print-preview.html'),'utf8');
+let css=(await readFile(path.join(dist,'style.css'),'utf8')).replace(/^@charset[^;]+;\s*/,'');
+for(const name of ['anton.woff2','jetbrains-mono.woff2']){const b64=Buffer.from(await readFile(path.join(dist,'assets/fonts',name))).toString('base64');css=css.replaceAll('assets/fonts/'+name,'data:font/woff2;base64,'+b64);}
+const motion=(await readFile(path.join(dist,'source-motion.js'),'utf8')).replace(/^export\s+/gm,'');
+const print=(await readFile(path.join(dist,'print-motion.js'),'utf8')).replace(/^export\s+/gm,'');
+const compositor='const createInkRenderer=(()=>{\n'+(await readFile(path.join(dist,'ink-renderer.js'),'utf8')).replace(/^export\s+/gm,'')+'\nreturn createInkRenderer;})();';
+let app=(await readFile(path.join(dist,'print-app.js'),'utf8')).replace(/^import[^\n]+\n/gm,'');
+app=app.replace(/\/\*INLINE_DATA_BEGIN\*\/[\s\S]*?\/\*INLINE_DATA_END\*\//,()=>"async function loadData(){return JSON.parse(document.getElementById('embedded-posters').textContent);}");
+assert(!/\bfetch\s*\(|^import\s|^export\s/m.test(app));
+const data=JSON.parse(await readFile(path.join(dist,'assets/source-equipment-v7.json'),'utf8'));assert.equal(data.format,'independent-source-equipment-v7');
+for(const scene of data.scenes)for(const n of [...scene.nodes,...scene.equipment,...scene.equipment.flatMap(o=>o.underpaint?[o.underpaint]:[]),scene.foreground])if(!n.sprite.uri.startsWith('data:')){const file=await readFile(path.join(dist,n.sprite.uri));n.sprite.uri='data:image/webp;base64,'+file.toString('base64');}
+const json=JSON.stringify(data).replace(/</g,'\\u003c').replace(/>/g,'\\u003e').replace(/&/g,'\\u0026');
+const notice=await readFile(path.join(root,'THIRD_PARTY_ink-plates_LICENSE.txt'),'utf8');
+const program=`(()=>{\n'use strict';\n${motion}\n${print}\n${compositor}\n${app}\n})();`.replace(/<\/script/gi,'<\\/script');
+const favicon=Buffer.from(await readFile(path.join(dist,'favicon.svg'))).toString('base64');
+html=html.replace('<link rel="icon" href="favicon.svg" type="image/svg+xml">',()=>`<link rel="icon" href="data:image/svg+xml;base64,${favicon}" type="image/svg+xml">`);
+html=html.replace('<link rel="stylesheet" href="style.css">',()=>`<style>\n${css}\n</style>`).replace(/\s*<script type="module" src="print-app\.js"><\/script>/,'').replace(/\s*<meta property="og:url"[^>]+>/,'');
+html=html.replace('</body>',()=>`<!-- Print-wave adaptation: https://github.com/AconHol/ink-plates\n${notice.replace(/--/g,'—')} -->\n<script id="embedded-posters" type="application/json">${json}</script>\n<script id="forma-application">\n${program}\n</script>\n</body>`);
+assert.equal(html.match(/<script id="forma-application">\n([\s\S]*?)\n<\/script>/)?.[1],program);new vm.Script(program);
+assert.deepEqual(JSON.parse(html.match(/<script id="embedded-posters" type="application\/json">([\s\S]*?)<\/script>/)[1]),data);
+assert(!/<(?:script|link)[^>]+(?:src|href)="(?!data:|#)/i.test(html));
+const output=path.join(root,'FORMA-standalone.html');await writeFile(output,html,'utf8');
+const report={output:path.relative(root,output),bytes:Buffer.byteLength(html),assetSignature:data.signature,posters:data.scenes.length,plates:data.scenes.reduce((a,s)=>a+s.nodes.length,0),introMilliseconds:1000,externalResources:0,source:'Disjoint original RGBA colour plates and continuous equipment sprites',equipment:data.scenes.reduce((n,s)=>n+s.equipment.length,0),curves:['glide','out','drift','calm'],noTerminalImageSubstitution:true,scriptAndJSONRoundtrip:'passed',nativeFileProtocol:'not tested'};
+await writeFile(path.join(root,'qa/v7-standalone-package.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
