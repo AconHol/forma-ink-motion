@@ -7,11 +7,11 @@
   <meta name="description" content="保留六张定稿的连续原稿轮廓，角色专属墨浪逐版印刷，一秒入场，整页主题色平滑切换。">
   <meta property="og:title" content="FORMA — INK IN MOTION">
   <meta property="og:description" content="让六张海报，成为六场演出。">
-  <meta property="og:url" content="https://cobalt-motion-archive-75366.aconhol08.chatgpt.site">
+  <meta property="og:url" content="https://demo.aconhol.xyz/projects/forma/">
   <title>FORMA — INK IN MOTION</title>
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZThkZWM4Ii8+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMjUiIGZpbGw9IiMxMTQwYTAiLz48cGF0aCBkPSJNMCA0M0w0MyAwSDY0TDIxIDY0SDBaIiBmaWxsPSIjMTIxMjE0Ii8+PHBhdGggZD0iTTAgNjBMNjAgMEg2NEw0IDY0SDBaIiBmaWxsPSIjZThkZWM4Ii8+PC9zdmc+Cg==" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=8.1.0">
-  <script type="module" src="print-app.js?v=8.1.0"></script>
+  <link rel="stylesheet" href="style.css?v=8.2.0">
+  <script type="module" src="print-app.js?v=8.2.0"></script>
 <link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin><link rel="canonical" href="https://demo.aconhol.xyz/projects/forma/">
 </head>
 <body>
@@ -36,6 +36,7 @@
     <header class="site-header">
       <a class="wordmark" href="#bronya" aria-label="FORMA 首页"><span class="wordmark-symbol" aria-hidden="true"><i></i><i></i><i></i></span>FORMA<span class="wordmark-separator">/</span><span class="wordmark-sub">MOTION ATELIER</span></a>
       <div class="header-note">纸上静帧，逐幕醒来<span class="live-dot" aria-hidden="true"></span></div>
+      <button class="auto-demo" id="auto-demo" data-action="demo" aria-label="开启自动演示" aria-pressed="false" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4L15 10L6 16Z"/></svg>自动演示<span>OFF</span></button>
       <button class="icon-button" id="help-toggle" aria-label="查看操作说明" aria-expanded="false" aria-controls="help-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8a4 4 0 0 1 8 0c0 3-4 3-4 6M12 18v1"/></svg></button>
     </header>
 
@@ -113,7 +114,7 @@
     <output id="render-status" class="sr-only" aria-live="polite" data-ready="false"></output>
   </div>
 
-  <dialog id="help-panel" class="info-dialog"><button class="dialog-close" data-close-dialog aria-label="关闭操作说明">×</button><span class="section-kicker">TAKE THE CONTROLS</span><h2>让画面再演一次。</h2><dl><div><dt>← / →</dt><dd>切换海报</dd></div><div><dt>SPACE</dt><dd>暂停、继续或重播</dd></div><div><dt>R</dt><dd>从头重播当前出场</dd></div><div><dt>拖动时间线</dt><dd>停在任何构图时刻</dd></div><div><dt>手机左右轻扫</dt><dd>切换角色</dd></div></dl><p>打开「柔和动效」可降低移动幅度；纸纹增强可叠加细微的印刷颗粒。</p></dialog>
+  <dialog id="help-panel" class="info-dialog"><button class="dialog-close" data-close-dialog aria-label="关闭操作说明">×</button><span class="section-kicker">TAKE THE CONTROLS</span><h2>让画面再演一次。</h2><dl><div><dt>← / →</dt><dd>切换海报</dd></div><div><dt>SPACE</dt><dd>暂停、继续或重播</dd></div><div><dt>R</dt><dd>从头重播当前出场</dd></div><div><dt>自动演示</dt><dd>每张入场后停留约 4 秒，依次轮播六张海报</dd></div><div><dt>拖动时间线</dt><dd>停在任何构图时刻</dd></div><div><dt>手机左右轻扫</dt><dd>切换角色</dd></div></dl><p>打开「柔和动效」可降低移动幅度；纸纹增强可叠加细微的印刷颗粒。</p></dialog>
   <dialog id="about-panel" class="info-dialog"><button class="dialog-close" data-close-dialog aria-label="关闭关于说明">×</button><span class="section-kicker">ABOUT THE PRINT</span><h2>同一张纸，<br>六种抵达方式。</h2><p>六张定稿的人物、装备、背景与排版保留原貌。弓、箭、大剑、摩托与其他装备分别错峰入场，以缓出和短暂回弹收势；连续色版沿专属墨浪推进。默认一秒全部归位，随后静止。</p><p>定稿的细节与纸张质感均来自原稿。六套主题色从原角色彩色参考中提取，再转成适合纸上印刷的色板；海报与整页配色连续变化。</p><p class="small-print">角色及作品归各自权利人所有。本页为个人视觉与动效实验。</p></dialog>
   <noscript><div class="noscript">请启用 JavaScript，以观看六场原稿分层海报动画。</div></noscript>
 </body>

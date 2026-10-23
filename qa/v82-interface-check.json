@@ -1,0 +1,118 @@
+{
+  "version": "8.2.0",
+  "browser": "Microsoft Edge on Windows",
+  "passed": true,
+  "viewports": [
+    [
+      1360,
+      920
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      1440,
+      600
+    ],
+    [
+      1200,
+      500
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      820,
+      1180
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      393,
+      873
+    ],
+    [
+      360,
+      640
+    ],
+    [
+      320,
+      568
+    ],
+    [
+      280,
+      600
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      568,
+      320
+    ],
+    [
+      667,
+      375
+    ],
+    [
+      900,
+      560
+    ],
+    [
+      1024,
+      500
+    ],
+    [
+      320,
+      480
+    ]
+  ],
+  "checks": {
+    "viewportFitsWithoutPageScroll": true,
+    "mainInterfaceTextSelectionDisabled": true,
+    "nativePosterSize": [
+      1024,
+      1536
+    ],
+    "touchNavigation": true,
+    "autoDemo": {
+      "defaultOff": true,
+      "wrapsLunaToBronya": true,
+      "advancesInOrder": true,
+      "pausesForDialog": true,
+      "offStopsSwitching": true
+    },
+    "offlineStandalone": {
+      "compositor": "webgl2",
+      "sprites": "42",
+      "equipment": "3",
+      "fonts": [
+        {
+          "family": "Anton",
+          "status": "loaded"
+        },
+        {
+          "family": "JetBrains Mono",
+          "status": "loaded"
+        }
+      ],
+      "passed": true,
+      "externalRequests": 0,
+      "protocol": "file",
+      "selectionBlocked": true,
+      "scrubPausesAuto": true,
+      "resumeAfterScrub": true,
+      "errors": []
+    }
+  },
+  "sourceAssetSignature": "32968dcc3963a7905fb2dc6e48a22e53a53108b8b16bb16c87029a93954a06db"
+}

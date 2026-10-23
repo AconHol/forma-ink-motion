@@ -1,6 +1,6 @@
 import {ACTS,clamp,lerp,smooth,pose,mixPose,sampleTrack,point,unit,mul,inverse,evaluateRig,departureRig,constrainRig,mixTheme,sourceColourMatrix} from './source-motion.js';
-import {paintInkPlates,equipmentPose,cubicPrint} from './print-motion.js?v=8.1.0';
-import {createInkRenderer} from './ink-renderer.js?v=8.1.0';
+import {paintInkPlates,equipmentPose,cubicPrint} from './print-motion.js?v=8.2.0';
+import {createInkRenderer} from './ink-renderer.js?v=8.2.0';
 const NS='http://www.w3.org/2000/svg',$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const svg=(name,attrs={})=>{const n=document.createElementNS(NS,name);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);return n;};
 const state=$('#render-status'),mount=$('#scene-mount'),paperMount=$('#paper-mount'),jointMount=$('#joints-mount'),timeline=$('#timeline');
@@ -14,7 +14,7 @@ function resizeStage(native=false){
  if(stageCanvas.width!==width){stageCanvas.width=width;stageCanvas.height=width*1.5;}
  if(M.data)paintStage();
 }
-const M={data:null,scenes:[],sprites:new Map(),index:0,phase:'loading',start:0,duration:1000,progress:0,paused:false,out:[],arrival:null,reduced:matchMedia('(prefers-reduced-motion: reduce)').matches,speed:1,joints:false,texture:false,theme:null,ramp:null,frame:0,transitions:0,settled:0,themeFrames:0,lastControls:0,loadToken:0,requested:null,warmTimer:0};
+const M={data:null,scenes:[],sprites:new Map(),index:0,phase:'loading',start:0,duration:1000,progress:0,paused:false,out:[],arrival:null,reduced:matchMedia('(prefers-reduced-motion: reduce)').matches,speed:1,joints:false,texture:false,theme:null,ramp:null,frame:0,transitions:0,settled:0,themeFrames:0,lastControls:0,loadToken:0,requested:null,warmTimer:0,auto:false,autoTimer:0,autoDelay:4000};
 const themeStyle=colors=>Object.entries(colors).map(([k,v])=>`--${k}:${v}`).join(';');
 const PRINT_STORIES={"bronya":["摩托沿速度线滑入，轻微回弹后锁定原位。","车身与两轮作为一个完整物件，从左下方驶入并减速收稳；骑手轮廓、原有场景和背景几何均保留。"],"kiana":["人物滑入，剑身收稳，火焰沿剑锋展开。","人物、大剑实体与剑锋火焰分为三组：人物斜向缓入，剑身围绕握点减速收稳，火焰随后沿剑锋铺展；双手始终跟随人物，落定后保持原构图。"],"elysia":["晶弓先到，箭矢随后沿箭杆方向入位。","晶弓缓出旋入并轻微回弹，箭矢以独立时序滑入。手指和弓弦保留，人物及背景仍沿原墨版方向展开。"],"aemeath":["机兵错峰浮升，减速回落，与少女构图归位。","机兵作为完整物件独立入场，少女保持原有轮廓，晶体与背景细节随非线性的墨浪显现。"],"vyron":["步枪先入，头顶夜视仪随后收稳。","枪械与三目夜视仪分开错峰入场。夜视仪的三个矩形光学盒与翻折支架保留，宇航服及轨道背景保持原稿。"],"luna":["复合弓旋入，箭矢随后沿射线滑入。","复合弓与箭矢分别计时，以缓出和短暂回弹收势。握弓手保持前景遮挡，弓弦、瞄具与天际线细节保留。"]};
 for(const act of ACTS){act.caption=PRINT_STORIES[act.id][0];act.story=PRINT_STORIES[act.id][1];}
@@ -116,6 +116,15 @@ function themeFrame(now){if(!M.ramp)return;const q=clamp((now-M.ramp.start)/M.ra
 const GLYPHS=['<circle cx="28" cy="74" r="22"/><circle cx="82" cy="74" r="22"/><path d="M9 101L102 15M28 74L56 30L82 74"/>','<path d="M21 105L83 8L94 17L44 103ZM35 72L68 96M62 5L56 27M82 75L103 55"/>','<path d="M58 6Q110 56 58 106L58 6ZM58 6L17 56L58 106M8 56H106"/>','<path d="M56 6L67 43L106 56L67 69L56 106L44 69L6 56L44 43Z"/><circle cx="56" cy="56" r="44"/>','<ellipse cx="56" cy="56" rx="52" ry="19" transform="rotate(-35 56 56)"/><circle cx="56" cy="56" r="32"/><path d="M48 28H64V70H48ZM51 22V15M61 22V15"/>','<path d="M7 106V79H22V90H35V55H50V80H65V40H80V67H94V18H105V106M9 24L101 91M84 90L101 91L96 74"/>'];
 function metadata(){const a=ACTS[M.index];$('#act-tag').textContent=a.act;$('#scene-name').textContent=a.title;$('#scene-credit').textContent=a.credit;$('#scene-story').textContent=a.story;$('#signature-label').textContent=a.signature;$('#scene-caption').textContent=a.caption;$('#act-glyph').innerHTML=`<svg viewBox="0 0 112 112" aria-hidden="true">${GLYPHS[M.index]}</svg>`;$('#poster-title').textContent=a.name+'动态海报';$('#poster-desc').textContent=a.story;$('#poster').setAttribute('data-character',a.id);for(const b of $$('.character-link')){const yes=b.dataset.character===a.id;b.classList.toggle('is-active',yes);b.setAttribute('aria-pressed',String(yes));}document.title=a.name+' — FORMA / INK IN MOTION';try{history.replaceState(null,'','#'+a.id);}catch{} }
 function wake(){if(!M.frame)M.frame=requestAnimationFrame(tick);}
+function stopDemoTimer(){if(M.autoTimer)clearTimeout(M.autoTimer);M.autoTimer=0;}
+function canDemo(){return M.auto&&!document.hidden&&!M.paused&&M.phase==='idle'&&!M.out.length&&!document.querySelector('dialog[open]');}
+function scheduleDemo(){stopDemoTimer();if(!canDemo())return;M.autoTimer=setTimeout(()=>{M.autoTimer=0;if(canDemo())choose(M.index+1);},M.autoDelay);}
+function demo(){
+ M.auto=!M.auto;stopDemoTimer();pressed('demo',M.auto);
+ $('#auto-demo').setAttribute('aria-label',M.auto?'停止自动演示':'开启自动演示');state.dataset.autoDemo=String(M.auto);
+ if(M.auto){if(M.paused){if(M.phase==='idle'){M.paused=false;controls();}else pause();}scheduleDemo();}
+}
+
 function trimCaches(){
  // All six scenes remain decoded, so switching never triggers a network read.
 }
@@ -127,9 +136,9 @@ async function ensureScene(index){
 function warmNext(){
  // Every scene is already warm before the loader is dismissed.
 }
-function replay(){if(M.phase==='loading')return;M.loadToken++;M.requested=null;$('#stage-loading').hidden=true;for(const b of $$('.is-queued'))b.classList.remove('is-queued');M.out=[];M.scenes.forEach(s=>s.hide());const scene=M.scenes[M.index];scene.show();M.phase='intro';M.progress=0;M.paused=false;M.arrival=null;M.start=performance.now();M.duration=scene.data.duration/M.speed;scene.intro(0);resizeStage();metadata();controls();wake();}
+function replay(){if(M.phase==='loading')return;stopDemoTimer();M.loadToken++;M.requested=null;$('#stage-loading').hidden=true;for(const b of $$('.is-queued'))b.classList.remove('is-queued');M.out=[];M.scenes.forEach(s=>s.hide());const scene=M.scenes[M.index];scene.show();M.phase='intro';M.progress=0;M.paused=false;M.arrival=null;M.start=performance.now();M.duration=scene.data.duration/M.speed;scene.intro(0);resizeStage();metadata();controls();wake();}
 async function choose(index){
- if(M.phase==='loading')return;index=(index+6)%6;if(index===M.index){replay();return;}
+ if(M.phase==='loading')return;stopDemoTimer();index=(index+6)%6;if(index===M.index){replay();return;}
  const token=++M.loadToken;M.requested=index;
  for(const b of $$('.character-link'))b.classList.toggle('is-queued',b.dataset.character===ACTS[index].id);
  const loading=$('#stage-loading');loading.textContent='正在准备 '+ACTS[index].id.toUpperCase();loading.hidden=M.scenes[index].cache.size>0;
@@ -149,7 +158,7 @@ function tick(now){
  const p=Math.max(M.progress,clamp((now-M.start)/M.duration));M.progress=p;const active=M.scenes[M.index];active.intro(p);
  for(const item of M.out){const q=clamp((now-item.start)/item.duration);if(q>=1)item.scene.hide();else item.scene.intro(item.fromProgress*(1-cubicPrint(q,'calm')));}
  M.out=M.out.filter(x=>x.scene.visible);
- if(p>=1&&!M.out.length){if(M.phase!=='idle'){M.phase='idle';active.intro(1);M.settled++;resizeStage(true);trimCaches();warmNext();}}else M.phase=M.out.length?'transition':'intro';
+ if(p>=1&&!M.out.length){if(M.phase!=='idle'){M.phase='idle';active.intro(1);M.settled++;resizeStage(true);trimCaches();warmNext();scheduleDemo();}}else M.phase=M.out.length?'transition':'intro';
  paintStage();controls(false,p>=1);
  if(M.audit){const a=M.audit,elapsed=now-a.start;a.samples.push({t:Math.round(elapsed*10)/10,gap:Math.round((now-a.last)*10)/10,workMs:Math.round((performance.now()-workStart)*100)/100});a.last=now;if(elapsed>=Math.min(1000,M.duration)||M.phase==='idle'){state.dataset.frameAudit=JSON.stringify({scene:active.data.id,elapsed,frames:a.samples.length,fps:a.samples.length*1000/elapsed,maxGap:Math.max(...a.samples.map(s=>s.gap)),samples:a.samples});M.audit=null;}}
  if(M.phase!=='idle'||M.ramp)wake();
@@ -164,7 +173,7 @@ function controls(paint=true,force=true){
  state.textContent=ACTS[M.index].name+' · '+(M.phase==='idle'?'海报已完整构成':M.paused?'动作已暂停':'正在入场');
 }
 function shiftPausedClock(now){const dt=Math.max(0,now-(M.pausedAt??now));M.start+=dt;for(const x of M.out)x.start+=dt;if(M.arrival)M.arrival.start+=dt;if(M.ramp)M.ramp.start+=dt;M.pausedAt=now;}
-function pause(){if(M.phase==='loading')return;if(M.phase==='idle'){replay();return;}M.paused=!M.paused;if(M.paused){if(M.frame)cancelAnimationFrame(M.frame);M.frame=0;M.pausedAt=performance.now();}else{shiftPausedClock(performance.now());wake();}controls();}
+function pause(){if(M.phase==='loading')return;stopDemoTimer();if(M.phase==='idle'){replay();return;}M.paused=!M.paused;if(M.paused){if(M.frame)cancelAnimationFrame(M.frame);M.frame=0;M.pausedAt=performance.now();}else{shiftPausedClock(performance.now());wake();}controls();}
 function paper(){const c=$('#paper-film'),ctx=c.getContext('2d',{alpha:true});if(!ctx)return;let seed=193743;const rnd=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return(seed>>>0)/4294967296;};const data=ctx.createImageData(c.width,c.height),a=data.data;for(let i=0;i<a.length;i+=4){const pale=rnd()>.57;a[i]=pale?250:45;a[i+1]=pale?238:36;a[i+2]=pale?216:24;a[i+3]=rnd()>.996?110:Math.floor(rnd()*40);}ctx.putImageData(data,0,0);ctx.lineWidth=.55;for(let i=0;i<1700;i++){const x=rnd()*1024,y=rnd()*1536,l=2+rnd()*10;ctx.strokeStyle=i%2?'rgba(250,238,216,.11)':'rgba(55,38,19,.075)';ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+l*.4,y+l);ctx.stroke();}}
 function pressed(action,on){for(const b of $$(`[data-action="${action}"]`)){b.setAttribute('aria-pressed',String(on));const label=b.querySelector('span:last-child');if(label)label.textContent=on?'ON':'OFF';}}
 function texture(){M.texture=!M.texture;$('#paper-film').classList.toggle('is-off',!M.texture);pressed('texture',M.texture);controls();}
@@ -184,16 +193,17 @@ async function download(){
 }
 function bind(){
  let hiddenAt=null;document.addEventListener('visibilitychange',()=>{if(document.hidden){hiddenAt=performance.now();if(M.frame)cancelAnimationFrame(M.frame);M.frame=0;}else if(hiddenAt!==null){const dt=performance.now()-hiddenAt;M.start+=dt;for(const item of M.out)item.start+=dt;if(M.ramp)M.ramp.start+=dt;if(M.pausedAt)M.pausedAt+=dt;if(M.audit){M.audit.start+=dt;M.audit.last+=dt;}hiddenAt=null;if(!M.paused&&M.phase!=='idle'&&M.phase!=='loading')wake();}});
+ $('#app').addEventListener('selectstart',event=>event.preventDefault());
  timeline.disabled=true;
  for(const b of $$('.character-link')){b.dataset.testid='select-'+b.dataset.character;b.addEventListener('click',()=>choose(ACTS.findIndex(a=>a.id===b.dataset.character)));}
  $('#prev').addEventListener('click',()=>choose(M.index-1));$('#next').addEventListener('click',()=>choose(M.index+1));$('#play').addEventListener('click',pause);$('#replay').addEventListener('click',replay);
- const actions={texture,motion:reduced,fullscreen:fullScreen,download,joints,speed};for(const b of $$('[data-action]'))b.addEventListener('click',()=>{if(M.phase!=='loading')actions[b.dataset.action]?.();});
+ const actions={demo,texture,motion:reduced,fullscreen:fullScreen,download,joints,speed};for(const b of $$('[data-action]'))b.addEventListener('click',()=>{if(M.phase!=='loading')actions[b.dataset.action]?.();});
  $('#fullscreen-close').addEventListener('click',fullScreen);
- timeline.addEventListener('input',()=>{if(timeline.disabled||M.out.length)return;if(M.frame)cancelAnimationFrame(M.frame);M.frame=0;M.ramp=null;M.arrival=null;M.progress=Number(timeline.value)/1000;M.phase=M.progress>=1?'idle':'intro';M.paused=true;M.pausedAt=performance.now();M.start=M.pausedAt-M.progress*M.duration;rampTheme(M.index,true);M.scenes[M.index].intro(M.progress);controls();});
- for(const [id,panelId] of [['help-toggle','help-panel'],['about-toggle','about-panel']]){const b=$('#'+id),p=$('#'+panelId);b.addEventListener('click',()=>{p.showModal();b.setAttribute('aria-expanded','true');});p.querySelector('[data-close-dialog]').addEventListener('click',()=>p.close());p.addEventListener('close',()=>b.setAttribute('aria-expanded','false'));}
+ timeline.addEventListener('input',()=>{if(timeline.disabled||M.out.length)return;stopDemoTimer();if(M.frame)cancelAnimationFrame(M.frame);M.frame=0;M.ramp=null;M.arrival=null;M.progress=Number(timeline.value)/1000;M.phase=M.progress>=1?'idle':'intro';M.paused=true;M.pausedAt=performance.now();M.start=M.pausedAt-M.progress*M.duration;rampTheme(M.index,true);M.scenes[M.index].intro(M.progress);controls();});
+ for(const [id,panelId] of [['help-toggle','help-panel'],['about-toggle','about-panel']]){const b=$('#'+id),p=$('#'+panelId);b.addEventListener('click',()=>{stopDemoTimer();p.showModal();b.setAttribute('aria-expanded','true');});p.querySelector('[data-close-dialog]').addEventListener('click',()=>p.close());p.addEventListener('close',()=>{b.setAttribute('aria-expanded','false');scheduleDemo();});}
  document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#stage-shell').classList.remove('fallback-fullscreen');if(e.altKey||e.ctrlKey||e.metaKey||e.target.matches('input,textarea,select')||document.querySelector('dialog[open]'))return;if(e.key==='ArrowRight'){e.preventDefault();choose(M.index+1);}else if(e.key==='ArrowLeft'){e.preventDefault();choose(M.index-1);}else if(e.code==='Space'){e.preventDefault();pause();}else if(e.key.toLowerCase()==='r')replay();});
- const surface=$('#poster-surface');let start=null;surface.style.touchAction='pan-y';surface.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;start=[e.clientX,e.clientY];surface.setPointerCapture(e.pointerId);});surface.addEventListener('pointerup',e=>{if(!start)return;const x=e.clientX-start[0],y=e.clientY-start[1];if(Math.abs(x)>45&&Math.abs(x)>Math.abs(y)*1.3)choose(M.index+(x<0?1:-1));start=null;});surface.addEventListener('pointercancel',()=>start=null);
- document.addEventListener('visibilitychange',()=>{if(document.hidden&&!M.paused&&M.phase!=='idle'){M.resumeOnVisible=true;pause();}else if(!document.hidden&&M.resumeOnVisible){M.resumeOnVisible=false;if(M.paused)pause();}});
+ const surface=$('#poster-surface');let start=null;surface.style.touchAction='none';surface.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;start=[e.clientX,e.clientY];surface.setPointerCapture(e.pointerId);});surface.addEventListener('pointerup',e=>{if(!start)return;const x=e.clientX-start[0],y=e.clientY-start[1];if(Math.abs(x)>45&&Math.abs(x)>Math.abs(y)*1.3)choose(M.index+(x<0?1:-1));start=null;});surface.addEventListener('pointercancel',()=>start=null);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stopDemoTimer();else scheduleDemo();if(document.hidden&&!M.paused&&M.phase!=='idle'){M.resumeOnVisible=true;pause();}else if(!document.hidden&&M.resumeOnVisible){M.resumeOnVisible=false;if(M.paused)pause();}});
  window.addEventListener('hashchange',()=>{const n=ACTS.findIndex(a=>a.id===location.hash.slice(1));if(n>=0&&n!==M.index)choose(n);});$('#load-retry').addEventListener('click',()=>location.reload());
 }
 /*INLINE_DATA_BEGIN*/
@@ -217,7 +227,7 @@ async function boot(){const began=performance.now();try{
  await Promise.all([document.fonts.load('16px "Anton"'),document.fonts.load('12px "JetBrains Mono"')]);await document.fonts.ready;
  stageContext.ready?.();state.dataset.compositor=stageContext.kind||'canvas2d';
 
- applyTheme(M.theme);pressed('texture',M.texture);$('#paper-film').classList.toggle('is-off',!M.texture);
+ applyTheme(M.theme);$('#auto-demo').disabled=false;pressed('demo',M.auto);state.dataset.autoDemo=String(M.auto);pressed('texture',M.texture);$('#paper-film').classList.toggle('is-off',!M.texture);
  $('#load-caption').textContent='原稿分层就绪，开始第一场动作';metadata();await new Promise(r=>setTimeout(r,Math.max(0,(M.reduced?100:250)-(performance.now()-began))));
  $('#app').classList.add('is-ready');$('#app').setAttribute('aria-busy','false');$('#loader').classList.add('is-gone');$('#loader').setAttribute('aria-hidden','true');Object.assign(state.dataset,{ready:'true',assetCount:'6',version:'3',assetSignature:M.data.signature,bodyNodes:String(M.data.scenes.reduce((n,s)=>n+s.nodes.filter(n=>n.part).length,0)),sourceGeometry:'approved-original-pixels',renderer:'independent-source-equipment-v7',spriteCount:String([...M.sprites.values()].reduce((sum,c)=>sum+c.size,0)),loadMilliseconds:String(Math.round(performance.now()-began))});M.phase='intro';replay();
  }catch(error){console.error('FORMA boot failed',error);$('#load-caption').textContent='载入失败：'+error.message;$('#load-count').textContent='—';$('#load-retry').hidden=false;state.dataset.error=error.message;}}
